@@ -1,0 +1,17 @@
+<% include partials/header %>
+
+<h1><%= campground.name %></h1>
+
+<img src="<%= campground.image %>" width=600px>
+
+<p><%= campground.description %></p>
+
+<% campground.comments.forEach(function(comment){   %>             <!--campground has the whole foundCampground object, we need to access its comments array which is why we do forEach on campground.comments-->
+    <p>
+        <strong>
+            <%= comment.author %>
+        </strong> - <%= comment.text %>
+    </p>
+<% }) %>
+
+<% include partials/footer %>

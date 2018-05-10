@@ -1,0 +1,21 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center;">Edit Comment</h1>
+        <div style="width: 30%; margin: 25px auto;"> <!--Center the form and make it shorter-->
+            <form action="/campgrounds/<%= campground_id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+                <div class="form-group">    <!--form-group class makes nice spacing between inputs and button-->
+                    <input class="form-control" type="text" name="comment[text]" value="<%= comment.text %>"></input>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Update</button> <!--btn-block takes all the space in the block-->
+                </div>
+            </form>
+            <a href="/campgrounds/<%= campground_id %>">Back</a>
+        </div>
+        
+    </div>
+    
+</div>
+<% include ../partials/footer %>

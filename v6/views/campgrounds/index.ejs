@@ -1,0 +1,28 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <header class="jumbotron">
+        <div class="container"> <!--To make the content inside of the jumbotron keep having padding even if window size is reduced-->
+            <h1>Welcome to YelpCamp</h1>
+            <p>View our hand-picked campgrounds from all over the world</p>
+            <p><a class="btn btn-primary btn-lg" href="/campgrounds/new">Add New Campground</a></p>
+        </div>
+    </header>
+    
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;"> <!--Style to make the app accomodate for different sizes of images-->
+        <% campgrounds.forEach(function(campground){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail"> <!--To make the individual images look like cards-->
+                    <img src="<%= campground.image %>"></img>
+                    <div class="caption">
+                        <h4><%= campground.name %></h4>
+                    </div>
+                    <a class="btn btn-primary" href="/campgrounds/<%= campground._id %>">More info</a>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+
+</div>
+
+<% include ../partials/footer %>
